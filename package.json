@@ -42,5 +42,8 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.4.0",
     "@babel/preset-env": "^7.4.1",
     "@babel/preset-typescript": "^7.3.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5"
   }
 }
