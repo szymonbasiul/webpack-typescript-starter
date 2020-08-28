@@ -7,6 +7,7 @@ var { response } = require('express');
 app.post('/', (req,res) =>{
     draggeJ = request.body;
     console.log('consola:   ', draggedJ);
+    if()
     false.writeFile(path.join(_dirname, '/', 'test.json'),
     err =>{
         if(err) throw err;

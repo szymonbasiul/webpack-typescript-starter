@@ -4,9 +4,7 @@ import {createDiv} from './html_service_templates';
 import {addTextToElement} from './html_service_templates';
 import {createInputField} from './html_service_templates';
 import {addButton} from './html_service_templates';
-// import {eraseTextInside} from './html_service_templates.js';
-import {fetchTest} from './html_service_templates';
-
+import {checkLoginAndPasswordWithFetch} from './fetch_service';
 var createLoginEnvironment =  () => {
     deleteElementsInsideDiv('infoPanel');
     createDiv('infoPanel', 'loginDiv');
@@ -18,7 +16,6 @@ var createLoginEnvironment =  () => {
     addButton('infoPanel', 'Login');
     var loginButton = document.getElementById('loginButton');
     (<HTMLBodyElement>loginButton).addEventListener('click', saveTypedLPIntoObject );
-    addButton('infoPanel', 'Get test');
 };
 (<HTMLHtmlElement>document.getElementById('loginLeftLink'))
 .addEventListener('click', () => {createLoginEnvironment();
@@ -36,7 +33,6 @@ var saveTypedLPIntoObject = () => {
     loginAndPasswordHolder.password = (
         <HTMLInputElement>document.getElementById('passwordField')).value;
         (<HTMLInputElement>document.getElementById('passwordField')).value = ''; // clearing field
-    // return loginAndPasswordHolder;
     console.log(loginAndPasswordHolder);
-    fetchTest(loginAndPasswordHolder);
+    checkLoginAndPasswordWithFetch(loginAndPasswordHolder);
 };

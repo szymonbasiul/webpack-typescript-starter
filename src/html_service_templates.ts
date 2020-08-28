@@ -25,46 +25,9 @@ export var addButton = (buttonPlacementId: string, buttonText: string) => {
     btn.innerHTML = buttonText;
     (<HTMLBodyElement>document.getElementById(buttonPlacementId)).appendChild(btn);
 };
-export var fetchTest = (twoFrazeObject: object) => {
-    console.log('starting the fetch...');
-    fetch('http://localhost:3533/api', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(
-                {twoFrazeObject}
-                )}
-        )
-        .then(response => response.json())
-        .then(data => {
-            console.log('success:', data);
-        })
-        .catch(error => {
-            console.error('errorek:', error);
-        });
-    };
-    export var GetTest = (twoFrazeObject: object) => {
-        console.log('starting the fetch...');
-        fetch('http://localhost:3533/api', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(
-                    {twoFrazeObject}
-                    )}
-            )
-            .then(response => response.json())
-            .then(data => {
-                console.log('success:', data);
-            })
-            .catch(error => {
-                console.error('errorek:', error);
-            });
-        };
-/*
-export var eraseTextInside = (idOfInputTextToClear: string) => {
-    var placeToClear = document.getElementById(idOfInputTextToClear);
-    (<HTMLInputElement>placeToClear).value = "";
-}*/
+export var createTextArea = (areaPlacementId: string, areaID: string) => {
+    var placeToAddText = document.getElementById(areaPlacementId);
+    var textArea = document.createElement('textarea');
+    textArea.id = areaID;
+    (<HTMLBodyElement>placeToAddText).appendChild(textArea);
+}
