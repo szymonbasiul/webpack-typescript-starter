@@ -1,3 +1,5 @@
+import {getTest} from './fetch_service';
+// import { parse } from 'querystring';
 export var createInputField = (idOfInputfieldPasteArea: string, idOfInputField: string) => {
     var inputField = document.createElement('input');
     inputField.type = 'text';
@@ -11,8 +13,8 @@ export var createDiv = (divPlacementId: string, divsID: string) => {
     var placeToAddDiv = document.getElementById(divPlacementId);
     (<HTMLBodyElement>placeToAddDiv).appendChild(div);
 };
-export var deleteElementsInsideDiv = (idOfPlaceToClear: string) => {
-    var placeToClear = document.getElementById(idOfPlaceToClear);
+export var deleteElementsInsideDiv = async (idOfPlaceToClear: string) => {
+     var placeToClear = document.getElementById(idOfPlaceToClear);
     (<HTMLBodyElement>placeToClear).innerHTML = '';
 };
 export var addTextToElement = (textPlacementId: string, textToPaste: string) => {
@@ -30,4 +32,10 @@ export var createTextArea = (areaPlacementId: string, areaID: string) => {
     var textArea = document.createElement('textarea');
     textArea.id = areaID;
     (<HTMLBodyElement>placeToAddText).appendChild(textArea);
-}
+};
+export var loadElementFromDatabaseToPanel = async ( textPlacementId: string, typeOfElement: string) => {
+var copyReturnFromfetch = JSON.parse(await getTest());
+console.log('and the element is:', copyReturnFromfetch[typeOfElement]);
+deleteElementsInsideDiv('infoPanel');
+addTextToElement(textPlacementId, copyReturnFromfetch[typeOfElement]);
+};

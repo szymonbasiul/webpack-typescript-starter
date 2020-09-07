@@ -4,7 +4,7 @@ import {passwordCheckTrue} from './html_js_functions';
 
 export var checkLoginAndPasswordWithFetch = (twoFrazeObject: object) => {
     console.log('starting the fetch...');
-    fetch('http://localhost:3533/api', {
+    fetch('/api', { // http://localhost:3533
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -26,22 +26,11 @@ export var checkLoginAndPasswordWithFetch = (twoFrazeObject: object) => {
             console.error('errorek:', error);
         });
     };
-    export var GetTest = (twoFrazeObject: object) => {
-        console.log('starting the fetch...');
-        fetch('http://localhost:3533/api', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(
-                    {twoFrazeObject}
-                    )}
-            )
-            .then(response => response.json())
-            .then(data => {
-                console.log('success:', data);
-            })
-            .catch(error => {
-                console.error('errorek:', error);
-            });
+    export var getTest = async () => {
+        console.log('starting the get...');
+       return  fetch('/data').then( // http://localhost:3533
+           data => data.json()
+           ).then(
+            data => data
+           );
         };

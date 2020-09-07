@@ -26,4 +26,14 @@ router.post('/', (request, response) =>{
     })
     });
 
+router.get('/', (request, response) =>{
+    fs.readFile( 'web_data.json' , 'utf8',
+    (err, data ) => {
+        if (err) throw err;
+        console.log('data read', data);
+        response.json(data);
+    })
+    
+})    
+
     module.exports = router ; 

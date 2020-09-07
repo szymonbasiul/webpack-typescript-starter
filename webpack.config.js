@@ -5,6 +5,7 @@ const ROOT = path.resolve( __dirname, 'src' );
 const DESTINATION = path.resolve( __dirname, 'dist' );
 
 module.exports = {
+    mode: 'development',
     context: ROOT,
 
     entry: {
