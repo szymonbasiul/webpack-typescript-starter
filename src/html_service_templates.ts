@@ -1,4 +1,5 @@
-import {getTest} from './fetch_service';
+import {getInfoPanelDataForEachLeftPanelButton} from './fetch_service';
+import {sendEditResultToJson} from './fetch_service';
 // import { parse } from 'querystring';
 export var createInputField = (idOfInputfieldPasteArea: string, idOfInputField: string) => {
     var inputField = document.createElement('input');
@@ -21,9 +22,9 @@ export var addTextToElement = (textPlacementId: string, textToPaste: string) => 
     var placeToAddText = document.getElementById(textPlacementId);
     (<HTMLBodyElement>placeToAddText).innerText += textToPaste;
 };
-export var addButton = (buttonPlacementId: string, buttonText: string) => {
+export var addButton = (buttonPlacementId: string, buttonText: string, buttonId: string) => {
     var btn = document.createElement('button');
-    btn.id = 'loginButton';
+    btn.id = buttonId;
     btn.innerHTML = buttonText;
     (<HTMLBodyElement>document.getElementById(buttonPlacementId)).appendChild(btn);
 };
@@ -33,9 +34,34 @@ export var createTextArea = (areaPlacementId: string, areaID: string) => {
     textArea.id = areaID;
     (<HTMLBodyElement>placeToAddText).appendChild(textArea);
 };
-export var loadElementFromDatabaseToPanel = async ( textPlacementId: string, typeOfElement: string) => {
-var copyReturnFromfetch = JSON.parse(await getTest());
+export var loadElementFromDatabaseToPanel = async (
+    textPlacementId: string, typeOfElement: string, editmodeOn: boolean) => {
+        var nameOfPartAndData = {
+            nameOfPart: typeOfElement,
+            data: ''
+        };
+var copyReturnFromfetch = JSON.parse(await getInfoPanelDataForEachLeftPanelButton());
 console.log('and the element is:', copyReturnFromfetch[typeOfElement]);
 deleteElementsInsideDiv('infoPanel');
+if (!editmodeOn) {
 addTextToElement(textPlacementId, copyReturnFromfetch[typeOfElement]);
-};
+        }
+if (editmodeOn) {
+    console.log('editmodeOn:  ', editmodeOn);
+    createTextArea(textPlacementId, 'editAreaId');
+    addTextToElement('editAreaId', copyReturnFromfetch[typeOfElement]);
+    addButton(textPlacementId, 'Zapisz', 'saveEditButtonId');
+    (<HTMLHtmlElement>document.getElementById('saveEditButtonId'))
+    .addEventListener('click', () => {
+        nameOfPartAndData.data =
+            (<HTMLInputElement>document.getElementById('editAreaId')).value;
+            console.log('sending ', nameOfPartAndData, ' to server');
+            sendEditResultToJson(nameOfPartAndData);
+        });
+    }
+    };
+    // sendEditResultToJson();
+    /* () => { console.log(
+            nameOfPartAndData.nameOfPart = typeOfElement,
+            nameOfPartAndData.data = (
+                <HTMLInputElement>document.getElementById('editAreaId')).value); }, */

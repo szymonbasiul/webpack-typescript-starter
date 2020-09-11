@@ -1,11 +1,9 @@
-
-  {
-    "1": "Hello World",
-    "stream": "stimy 11111",
-    "contact": "numer 123-444-555",
-    "diocese": "diecezja",
-    "community": "wspolnota",
-    "sacraments": "sakramenty",
-    "mass": "msze o 17"
-  }
-  
+{
+  "1": "Hello World",
+  "stream": "stimy222",
+  "contact": "nie ma  takiego numeru\n",
+  "diocese": "diecezja",
+  "community": "wspolnota",
+  "sacraments": "sakramenty",
+  "mass": "msze o 17"
+}

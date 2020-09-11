@@ -31,8 +31,8 @@ var createLoginEnvironment =  () => {
     createDiv('infoPanel', 'passwordDiv');
     addTextToElement('passwordDiv', '\n Password');
     createInputField('passwordDiv', 'passwordField');
-    addButton('infoPanel', 'Login');
-    var loginButton = document.getElementById('loginButton');
+    addButton('infoPanel', 'Login', 'loginButtonId');
+    var loginButton = document.getElementById('loginButtonId');
     (<HTMLBodyElement>loginButton).addEventListener('click', saveTypedLPIntoObject );
 };
 
@@ -40,4 +40,4 @@ var createLoginEnvironment =  () => {
 .addEventListener('click', () => {createLoginEnvironment();
 });
 
-addLeftPanelButtonsServices();
+addLeftPanelButtonsServices(false);
