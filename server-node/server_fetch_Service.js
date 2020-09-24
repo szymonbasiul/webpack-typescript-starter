@@ -9,7 +9,7 @@ let respondOnLogin;
 
 router.post('/', (request, response) =>{
     dataPartWithPasswordAndLogin = request.body;
-    if (dataPartWithPasswordAndLogin.twoFrazeObject.login === 'bodzio' && dataPartWithPasswordAndLogin.twoFrazeObject.password === 'ptaki'){
+    if (dataPartWithPasswordAndLogin.twoFrazeObject.login === 'ksandrew' && dataPartWithPasswordAndLogin.twoFrazeObject.password === 'hope321'){
         console.log('zalogowany');
         respondOnLogin = true;
     }else{

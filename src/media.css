@@ -1,0 +1,44 @@
+@media (max-width:480px) {
+body{
+    background-color: turquoise;
+}
+#mainDiv{
+    width: 80%;
+    display: flexbox;
+    
+}
+.leftLinks{
+    padding-top: 10px;
+    padding-bottom: 10px;       
+    background-color: whitesmoke;
+    width: 100%;
+    border: 1px solid white;
+    transition-duration: 1s;
+    cursor: pointer;
+    text-size-adjust: 20;
+}
+#infoPanel{
+    grid-row: 6 / 7;
+    grid-column: 2 / 6;
+    align-self: center;
+    text-align: center;
+    
+
+}
+#leftPanel{
+    grid-column: 1 / 7;
+    grid-row: 3 / 6;
+    border-right: 1px solid rgb(0, 0, 0);
+    height: 100%;
+    width: 100%;
+    align-self: center;
+}
+#infoPanel{
+    grid-row: 3 / 6;
+    grid-column: 2 / 7;
+    align-self: center;
+    text-align: center;
+    
+
+}
+}
