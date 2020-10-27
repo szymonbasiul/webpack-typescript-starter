@@ -3,7 +3,7 @@ import {passwordCheckTrue} from './html_js_functions';
 
 export var sendEditResultToJson = (nameOfPartAndData: object) => {
     console.log('starting the fetch...');
-    fetch('http://localhost:3533/edit', {
+    fetch('/edit', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -18,7 +18,7 @@ export var sendEditResultToJson = (nameOfPartAndData: object) => {
 
 export var checkLoginAndPasswordWithFetch = (twoFrazeObject: object) => {
     console.log('starting the fetch...');
-    fetch('http://localhost:3533/api', { // http://localhost:3533
+    fetch('/api', { // http://localhost:3533
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -42,7 +42,7 @@ export var checkLoginAndPasswordWithFetch = (twoFrazeObject: object) => {
     };
     export var getInfoPanelDataForEachLeftPanelButton = async () => {
         console.log('starting the get...');
-       return  fetch('http://localhost:3533/data').then( // http://localhost:3533
+       return  fetch('/data').then( // http://localhost:3533
            data => data.json()
            ).then(
             data => data
