@@ -45,6 +45,8 @@ console.log('and the element is:', copyReturnFromfetch[typeOfElement]);
 deleteElementsInsideDiv('infoPanel');
 if (!editmodeOn) {
 addTextToElement(textPlacementId, copyReturnFromfetch[typeOfElement]);
+window.location.href = '#infoPanel';
+
         }
 if (editmodeOn) {
     console.log('editmodeOn:  ', editmodeOn);
