@@ -42,4 +42,8 @@ export var addLeftPanelButtonsServices = (editModeOn: boolean) => {
 .addEventListener('click', () => {
     loadElementFromDatabaseToPanel('infoPanel', 'mass', editModeOn);
 });
+(<HTMLBodyElement>document.getElementById('massIdCopy'))
+.addEventListener('click', () => {
+    loadElementFromDatabaseToPanel('infoPanel', 'mass', editModeOn);
+});
 };

@@ -3,8 +3,24 @@ a {
         color: black; 
 
 }
+.links{
+   color: royalblue    ;
+   transition: 0ms;
+}
+.links:hover{
+        text-decoration: underline;
+}
+#editAreaId{
+        width: 100%;
+        height: 240px;
+        font-family: "Arial Black", Gadget, sans-serif;
+        font-size: 100%;
+       
+        text-align: center;
+        resize: none;
+}
 #mainDiv{
-        width: 80%;
+        width: 100%;
         max-width: 927px;
         height: auto;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -61,8 +77,6 @@ a {
         background-color: rgb(228, 250, 250);
         border-radius: 5px 
         
-        
-
 }
 .leftLinks{
         padding-top: 10px;
